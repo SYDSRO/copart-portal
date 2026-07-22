@@ -95,6 +95,7 @@ a.lotlink::after{content:' ↗';font-size:10px;opacity:.7}
 @keyframes s{to{transform:rotate(360deg)}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
 </head>
 <body>
 
@@ -421,8 +422,8 @@ function deleteView(i){if(VIEWS.length<=1){alert('Keep at least one view.');retu
 
 
 // ===================== CLOUD LAYER (Supabase) =====================
-// >>> EDIT THESE TWO LINES with your Supabase project values <<<
-const CLOUD={url:'https://pjiupmmppevtfmleyubl.supabase.co',key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqaXVwbW1wcGV2dGZtbGV5dWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3NDc1MDAsImV4cCI6MjEwMDMyMzUwMH0.nBr6W_xE5ihiAAK__vWfHL1r7a1brIh1Jgksg2uplYI',bucket:'portal',file:'master.b64'};
+// Keys come from config.js (window.SUPABASE_URL / window.SUPABASE_ANON_KEY).
+const CLOUD={url:(window.SUPABASE_URL||''),key:(window.SUPABASE_ANON_KEY||''),bucket:'portal',file:'master.b64'};
 const cloudOn=/^https?:\/\//.test(CLOUD.url);
 let sb=null, USER=null, cloudSaveTimer=null;
 function _loadEl(){return document.getElementById('loading');}
